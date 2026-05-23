@@ -1,7 +1,10 @@
-import React from "react";
+import "./App.scss";
 
-interface Props {}
-
-export const App = (props: Props) => {
-  return <div>Hello</div>;
+export const App = () => {
+  return (
+    <div>
+      Hello
+      <button>Click</button>
+    </div>
+  );
 };
