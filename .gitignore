@@ -1,2 +1,7 @@
-node_modules
-build
+node_modules/
+
+build/
+dist/
+
+.vscode/
+.DS_Store
