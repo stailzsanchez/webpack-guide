@@ -9,12 +9,6 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
   const { mode, port, paths } = options;
   const isDev = mode === "development";
 
-  const devServer = {
-    port: port ?? 3000,
-    open: true,
-    hot: true,
-    historyApiFallback: true,
-  };
   return {
     mode: mode || "development",
     entry: paths.entry,

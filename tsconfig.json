@@ -2,13 +2,16 @@
   "compilerOptions": {
     "outDir": "./build/",
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "es2022",
     "moduleResolution": "bundler",
     "target": "esnext",
     "jsx": "react-jsx",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
