@@ -1,10 +1,10 @@
-import "./App.scss";
+import classes from "./App.module.scss";
 
 export const App = () => {
   return (
     <div>
       Hello
-      <button>Click</button>
+      <button className={classes.button}>Click</button>
     </div>
   );
 };
