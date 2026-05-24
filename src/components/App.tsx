@@ -1,6 +1,8 @@
-import { Link, Outlet } from "react-router-dom";
-import classes from "./App.module.scss";
-import About from "@/pages/about/About";
+import { Link, Outlet } from 'react-router-dom';
+
+import classes from './App.module.scss';
+
+import About from '@/pages/about/About';
 
 export const App = () => {
   return (

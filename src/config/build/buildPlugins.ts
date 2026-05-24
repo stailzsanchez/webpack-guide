@@ -1,8 +1,10 @@
+import ESLintPlugin from "eslint-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import webpack, { Configuration, DefinePlugin } from "webpack";
-import { BuildOptions } from "./types/types";
+import webpack, { Configuration } from "webpack";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+
+import { BuildOptions } from "./types/types";
 
 export function buildPlugins(options: BuildOptions): Configuration["plugins"] {
   const { mode, paths, analyzer } = options;
@@ -15,7 +17,15 @@ export function buildPlugins(options: BuildOptions): Configuration["plugins"] {
   ];
 
   if (isDev) {
-    plugins.push(new webpack.ProgressPlugin());
+    plugins.push(
+      new webpack.ProgressPlugin(),
+      new ESLintPlugin({
+        extensions: ["ts", "tsx"], // Проверяем только TS файлы
+        fix: isDev, // Автоматически исправлять ошибки в режиме разработки (опционально)
+        failOnError: !isDev, // Останавливать сборку в продакшене при ошибках
+        emitWarning: true,
+      })
+    );
   }
 
   if (isProd) {

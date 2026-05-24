@@ -1,5 +1,6 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { ModuleOptions } from "webpack";
+
 import { BuildOptions } from "./types/types";
 
 export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
@@ -21,7 +22,13 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     use: [
       isDev ? "style-loader" : MiniCssExtractPlugin.loader,
       cssLoaderWithModules,
-      "sass-loader",
+      {
+        loader: "sass-loader",
+        options: {
+          // Используем современный API для устранения предупреждения
+          api: "modern",
+        },
+      },
     ],
   };
 
