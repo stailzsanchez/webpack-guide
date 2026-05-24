@@ -1,0 +1,5 @@
+# Автоопределение для текстовых файлов
+* text=auto
+
+# Принудительно использовать LF для package-lock.json
+package-lock.json text eol=lf
